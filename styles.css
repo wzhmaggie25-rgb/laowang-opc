@@ -1,0 +1,95 @@
+/* 老王的个人站 · 极简风格 · 移动优先 */
+:root {
+  --ink: #1a1a1a;
+  --gray: #666;
+  --light-gray: #999;
+  --line: #e8e8e8;
+  --bg: #fafafa;
+  --card: #ffffff;
+  --accent: #b3541e;
+  --accent-bg: #fdf6ef;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* 导航 */
+nav { border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; z-index: 10; }
+nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
+nav .brand { font-weight: 800; font-size: 18px; color: var(--ink); }
+nav a.nav-link { color: var(--gray); font-size: 15px; }
+nav a.nav-link:hover { color: var(--ink); }
+
+/* Hero */
+.hero { padding: 56px 0 40px; }
+.hero h1 { font-size: 34px; line-height: 1.4; font-weight: 800; margin-bottom: 16px; letter-spacing: 0.02em; }
+.hero .tagline { font-size: 17px; color: var(--gray); max-width: 600px; }
+.hero .tagline strong { color: var(--ink); }
+
+/* 区块 */
+section { padding: 28px 0; }
+section h2 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+section .sub { color: var(--light-gray); font-size: 14px; margin-bottom: 20px; }
+
+/* 产品卡片 */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.card h3 { font-size: 18px; margin-bottom: 8px; }
+.card h3 .badge {
+  display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent);
+  background: var(--accent-bg); border: 1px solid #f0ddc8; border-radius: 20px;
+  padding: 2px 10px; margin-left: 8px; vertical-align: middle;
+}
+.card p { color: var(--gray); font-size: 15px; margin-bottom: 12px; }
+.card .action { font-size: 15px; font-weight: 600; }
+.card ul { margin: 0 0 12px 20px; color: var(--gray); font-size: 15px; }
+
+/* 阅读列表 */
+.day-block { margin-bottom: 32px; }
+.day-block h3 { font-size: 19px; margin-bottom: 4px; }
+.day-block .date { color: var(--light-gray); font-size: 13px; margin-bottom: 14px; }
+.pick { background: var(--accent-bg); border: 1px solid #f0ddc8; border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+.pick .pick-label { font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 6px; }
+.pick h4 { font-size: 16px; margin-bottom: 6px; }
+.pick h4 a { color: var(--ink); }
+.pick p { font-size: 14px; color: var(--gray); }
+.article { padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+.article:last-child { border-bottom: none; }
+.article .src { color: var(--light-gray); font-size: 13px; margin-right: 8px; }
+.article a { color: var(--ink); }
+.empty { color: var(--light-gray); padding: 40px 0; text-align: center; }
+
+/* 关于 / 联系 */
+.about p { margin-bottom: 14px; color: #333; }
+.contact { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.qr { width: 160px; text-align: center; }
+.qr .qr-box {
+  width: 160px; height: 160px; border: 1px dashed #ccc; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--light-gray); font-size: 13px; background: var(--card);
+}
+.qr img { width: 160px; height: 160px; border-radius: 8px; }
+.qr p { font-size: 13px; color: var(--gray); margin-top: 8px; }
+
+footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 24px 0 40px; color: var(--light-gray); font-size: 13px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px; }
+  .hero { padding: 40px 0 28px; }
+}
