@@ -41,3 +41,23 @@ async function copy(text) {
 document.querySelectorAll("[data-copy]").forEach(button => {
   button.addEventListener("click", () => copy(button.dataset.copy));
 });
+
+// Reading pages already link to /#about. Reuse the existing introduction.
+const aboutDialog = document.getElementById("about-dialog");
+function syncAboutHash() {
+  if (location.hash === "#about") {
+    dialogs.forEach(dialog => {
+      if (dialog !== aboutDialog && dialog.open) dialog.close();
+    });
+    if (!aboutDialog.open) aboutDialog.showModal();
+  } else if (aboutDialog.open) {
+    aboutDialog.close();
+  }
+}
+aboutDialog.addEventListener("close", () => {
+  if (location.hash === "#about") {
+    history.replaceState(null, "", location.pathname + location.search + "#home");
+  }
+});
+window.addEventListener("hashchange", syncAboutHash);
+syncAboutHash();

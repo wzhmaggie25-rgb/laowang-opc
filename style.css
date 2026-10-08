@@ -236,3 +236,12 @@ main>.recent h2{margin:12px 0 6px;font-size:26px}main>.recent p{font-size:14px;m
 @media(max-width:480px){#consult-dialog{padding:22px}#consult-dialog h2{font-size:23px}.consult-actions{flex-direction:column;align-items:stretch;gap:6px}#consult-dialog .consult-actions .consult-wechat{width:100%;min-width:0;flex:none}#consult-dialog .consult-actions .consult-outline{justify-content:center}}
 
 @media(max-width:350px){#consult-dialog{padding:18px}#consult-dialog h2{font-size:21px}#consult-dialog .dialog-top{margin-bottom:12px}#consult-dialog .consult-lead{font-size:13px}#consult-dialog .consult-meta{margin:10px 0 16px;font-size:12px}.consult-content{gap:14px}#consult-dialog .consult-content p{font-size:13px;line-height:1.8}.consult-prep{margin-top:16px}.consult-actions{margin-top:16px}#consult-dialog .consult-boundary{margin-top:12px}}
+
+/* Keep one contact action in the header; reading has its own quieter entry. */
+.topbar .brand,.topbar-right .text-link{white-space:nowrap;flex-shrink:0}
+.reading-entry{display:flex;align-items:center;justify-content:space-between;gap:32px;margin:0 10px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reading-entry h2{font-size:20px;line-height:1.5;margin:0 0 7px}
+.reading-entry p{font-size:14px;line-height:1.85;color:var(--muted);margin:0}
+.reading-entry>.text-link{white-space:nowrap;flex-shrink:0;min-height:44px;font-size:13px}
+@media(max-width:600px){.reading-entry{align-items:flex-start;flex-direction:column;gap:10px;padding:22px 0}.reading-entry>.text-link{gap:16px;padding:0;border:0}}
+@media(max-width:480px){.topbar{gap:12px}.topbar-right{gap:0}.topbar-right .text-link{font-size:12px;padding:0 14px;gap:12px;min-height:44px}.topbar .brand{font-size:16px;gap:8px}}
