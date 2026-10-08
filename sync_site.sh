@@ -23,8 +23,9 @@ else
 fi
 
 echo "== 3/3 Vercel 部署 =="
+# vercel CLI 持久化在 ~/workspace/tools/vercel-cli（2026-10-06：系统目录的版本在 VM 重启后丢失过）
 export VERCEL_TOKEN=$(cat ~/.config/laowang-opc/vercel-token)
-if node /usr/lib/node_modules/vercel/dist/index.js deploy --prod --yes --token="$VERCEL_TOKEN" --name=laowang-opc 2>&1 | grep -qE "Deployment complete|https://"; then
+if ~/workspace/tools/vercel-cli/node_modules/.bin/vercel deploy --prod --yes --token="$VERCEL_TOKEN" --name=laowang-opc 2>&1 | grep -qE "Deployment complete|https://"; then
   echo "vercel 部署成功"
 else
   echo "WARN: vercel 部署失败"

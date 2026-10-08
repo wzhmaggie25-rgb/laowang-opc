@@ -89,7 +89,7 @@ def render(iss, all_days):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>每日阅读 · {day} · 老王</title>
-<meta name="description" content="老王的阅读杂志公开目录（{day}）：14 个英文信源中文摘要与今日推荐，全文版在私密阅读站。">
+<meta name="description" content="老王的阅读杂志公开目录（{day}）：14 个英文信源中文摘要与今日推荐。">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -102,11 +102,11 @@ def render(iss, all_days):
 <div class="wrap">
 <header class="hero" style="padding-bottom:16px">
 <h1>每日阅读 · 公开目录</h1>
-<p class="tagline">14 个英文订阅源每天的中文目录：<strong>标题 + 中文摘要 + 原文链接</strong>。<br>全文翻译版在私密阅读站，<a href="/#contact">加微信获取阅读权限</a>。</p>
+<p class="tagline">14 个英文订阅源每天的中文目录：<strong>标题 + 中文摘要 + 关键引文 + 原文链接</strong>，免费看。<br>私密站有往期 141 篇全文翻译存档 + X 每日速览中英对照，<a href="/#contact">加微信获取阅读权限</a>。</p>
 </header>
 <section>
 <h2>{day}（第 {n} 期）</h2>
-<p class="sub">每天早上更新 · 摘要免费看，全文私密阅读</p>
+<p class="sub">每天早上更新 · 摘要免费看</p>
 """.format(day=day, n=n)]
 
     if iss["recs"]:
