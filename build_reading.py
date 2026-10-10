@@ -12,6 +12,12 @@ BASE = Path(__file__).parent
 DIGEST_FILES = Path.home() / "workspace/goals/daily-subscription-reading-digest/files"
 READING = BASE / "reading"
 
+def _issue_key(p):
+    # 文件名如“老王的阅读杂志-第10期-20261010.html”：按日期再按期号排序，
+    # 避免字典序下“第10期”排在“第9期”前面（2026-10-10 修复）
+    m = re.search(r"第(\d+)期-(\d{8})", p.name)
+    return (m.group(2), int(m.group(1))) if m else ("", 0)
+
 def parse_issue(path: Path):
     raw = path.read_text(encoding="utf-8")
     m = re.search(r"第(\d+)期-(\d{4})(\d{2})(\d{2})", path.name)
@@ -159,13 +165,13 @@ def render(iss, all_days):
     return "\n".join(parts)
 
 def main():
-    files = sorted(DIGEST_FILES.glob("老王的阅读杂志-第*期-*.html"))
+    files = sorted(DIGEST_FILES.glob("老王的阅读杂志-第*期-*.html"), key=_issue_key)
     if not files:
         print("no issues found"); return
     targets = files if "--all" in sys.argv else files[-1:]
     READING.mkdir(parents=True, exist_ok=True)
     days = []
-    for f in sorted(files):
+    for f in files:
         m = re.search(r"(\d{4})(\d{2})(\d{2})", f.name)
         days.append(f"{m.group(1)}-{m.group(2)}-{m.group(3)}")
     for f in targets:
